@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\title[Quenching Histories of Fast and Slow Rotators]{SDSS-IV MaNGA: The Quenching Histories of Fast and Slow Rotators}
+\title[Quenching Histories of Regular and Non-Regular Rotators]{SDSS-IV MaNGA: Non-Regular Rotators Quench Faster than Regular Rotators}
 \author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1,2}$ C. ~J. ~Lintott,$^{2}$ et al.
 \\ $^1$ School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK
 \\ $^2$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK
@@ -23,6 +23,7 @@
 \maketitle
 
 \begin{abstract}
+With observations from the MaNGA IFU survey, we classify $838$ galaxies, which lie off the star forming sequence, as either regular or non-regular rotators and infer their exponentially declining star formation histories. We use photometry from SDSS and GALEX to derive the $u-r$ and $NUV-u$ colours of a galaxy and a Bayesian method to infer the time and exponentially declining rate that quenching occurs in a galaxy. We find that across the non-regular rotator sample, quenching is more likely to occur at a rapid rate than across the regular rotator sample. The distribution of inferred quenching rates across the two samples is significantly ($3\sigma$) different, suggesting that regular and non-regular rotators do indeed have different formation histories.
 \end{abstract}
 
 \begin{keywords}
@@ -62,7 +63,7 @@ Complete spectral coverage to $1.5 R_e$ is obtained for the majority of targets,
 
 The raw data was processed by the MaNGA data reduction pipeline (DRP), which is discussed in detail \cite{law16}. The MaNGA DRP extracts, wavelength calibrates and flux calibrates all fibre spectra obtained in every exposure. The individual fibre spectra are then used to form a regular gridded datacube of $0.5''$ ‘spaxels’ and spectral channels. The spectra are logarithmically sampled with bin widths of $\log{\lambda} = 10^{-4}$. 
 
-These datacubes are then analysed using the MaNGA data analysis pipeline (DAP); the development of which is ongoing and will be described in detail in Westfall et al. (in preparation). The primary output from the DAP are the MAPS files which provide 2D "maps" (i.e., images) of DAP measured properties, which include flux, stellar-continuum fits, absorption- and emission-line properties and spectral index measurements. The DAP also provides a measurement of a galaxy's ellipticity, $\epsilon$, and effective radius, $R_e$, which is used along with the specific angular momentum to classify galaxies as either regular or non-regular rotators (see Section~\ref{sec:mangasample}).
+These datacubes are then analysed using the MaNGA data analysis pipeline (DAP); the development of which is ongoing and will be described in detail in Westfall et al. (in preparation). The primary output from the DAP are the MAPS files which provide 2D "maps" (i.e., images) of DAP measured properties, which include flux, stellar-continuum fits, absorption- and emission-line properties and spectral index measurements. The DAP also provides a measurement of a galaxy's ellipticity, $\epsilon$, and effective radius, $R_e$, which is used along with the specific angular momentum to classify galaxies as either regular or non-regular rotators (see Section~\ref{sec:mangasample}). 
 
 \subsection{Data sample}\label{sec:mangasample}
 
@@ -70,42 +71,46 @@ There are currently $2,777$ galaxies observed by the MaNGA survey and consequent
 
 In this study we wish to study the quenching histories of these galaxies, therefore we sub-select those galaxies which are below the `star forming sequence' (SFS\footnote{Sometimes referred to as the `'main'' sequence or star formation.}). Here we utilise the values quoted in the MPA-JHU catalogue \citep{kauffmann03, brinchmann04} which quantify the SFR of a galaxy using the $\rm{H}\alpha$ emission line observed in the SDSS fibre spectra and correct this for aperture bias using SDSS photometry to provide a galaxy wide SFR. Whilst we do not use this value to infer the SFHs of these galaxies (see Section~\ref{sec:starpy}), we do utilise them to select a sample of galaxies with SFRs more than $1\sigma$ below the SFS of \cite{peng10}. 
 
-In this investigation we also focus on the different formation (and therefore quenching) histories of early-type galaxies and so utilise the morphological classifications of Galaxy Zoo 2 \citep[GZ2; ][]{lintott11, GZ2}. We select those galaxies classified as `smooth' by GZ2 users (i.e. with a debiased `smooth' vote fraction of $p_s \geq 0.8$).  These selections on morphology and SFR applied to the \textsc{manga-galex} sample result in a sample of $167$ quenching or quenched early-type galaxies, which we will refer to as the \textsc{q-etg} sample. The positions of these galaxies below the SFS are shown in Figure~\ref{fig:masvsfr}. 
+%In this investigation we also focus on the different formation (and therefore quenching) histories of early-type galaxies and so utilise the morphological classifications of Galaxy Zoo 2 \citep[GZ2; ][]{lintott11, GZ2}. We select those galaxies classified as `smooth' by GZ2 users (i.e. with a debiased `smooth' vote fraction of $p_s \geq 0.8$).  
+
+These selection on SFR when applied to the \textsc{manga-galex} sample result in a sample of $838$ quenching or quenched galaxies, which we will refer to as the \textsc{q-manga-galex} sample. The positions of these galaxies below the SFS are shown in Figure~\ref{fig:masvsfr}. 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.475\textwidth]{../figures/nonSF_FR_SR_SFS_scatter.pdf}
-\caption{Stellar mass against star formation rate for the~\textsc{q-etg}~sample split into regular (blue circles) and non-regular (red squares) rotators. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \cite{peng10} at the average redshift of the \textsc{q-etg} sample with $\pm1\sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-etg} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\ref{sec:mangasample}).}
+\caption{Stellar mass against star formation rate for the \textsc{q-manga-galex} sample split into regular (blue circles) and non-regular (red squares) rotators. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \cite{peng10} at the average redshift of the \textsc{q-manga-galex} sample with $\pm 1 \sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-manga-galex} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\ref{sec:mangasample}).}
 %KS Test between distributions?
 \label{fig:masvsfr}
 \end{figure}
 
-In order to classify the galaxies in the \textsc{q-etg} sample as regular rotators or otherwise, we use the equation for specific stellar angular momentum as defined by \cite{emsellem07, emsellem11};
-\begin{equation}
-\lambda_R_e = \frac{\sum_{i=1}^{N} F_i\ R_i\ |V_i|}{\sum_{i=1}^{N} F_i\ R_i\ (V_i^2 + \sigma_i^2)^{1/2}}
-\end{equation}	
-
-where $F_i$ is the flux in the $i$th spaxel, $R_i$ the spaxel's distance from the galaxy centre (where $R_i < R_e$, the effective radius of a galaxy), $V_i$ the mean stellar velocity in that spaxel, $\sigma_i$ the stellar velocity dispersion in that spaxel and $N$ the total number of spaxels. In this work we use the python function provided in the MaNGA DAP to calculate $\lambda_R$ using the values of mean flux, radius, stellar velocity and stellar velocity dispersion (corrected for instrumental resolution effects) provided in the MAPS files generated by the MaNGA DAP (see Section~\ref{sec:manga}).
-
-We classify galaxies in the \textsc{q-etg} sample as regular or non-regular rotators using the definition from \cite{cappellari16}:
-
-\begin{equation}
-\lambda_R_e < 0.08 + \epsilon_e/4 ~ \rm{with} ~ \epsilon_e < 0.4
-\end{equation}
-
-where $\epsilon_e$ is the ellipticity of a galaxy within it's effective radius, $R_e$. Using this definition reveals $106$ ($63\%$) regular rotators and $61$ ($37\%$) non-regular rotators. Velocity dispersion measurements in each spaxel of a galaxy were confirmed to be above the instrument resolution of $77~\rm{km}~\rm{s}^{-1}$. They are shown by their velocity maps in Figure~\ref{fig:evsl}. 
-
 \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{../figures/nonSF_ETGs_FR_SR_sample_orig_cmap_vel_maps.pdf}
+\includegraphics[width=\textwidth]{../figures/nonSF_FR_SR_sample_orig_cmap_vel_maps.pdf}
 \caption{Ellipticity versus stellar angular momentum for the quenching and quenched galaxies in the current observed MaNGA sample. Each point is shown by its stellar velocity map, each normalised to have the midpoint, between maximum and minimum measured velocity dispersions, shown by the colour yellow. We show the separation between regular (i.e. fast) and non-regular (i.e. slow) rotators from Cappellari (2016) with the black solid line.}
 %KS Test between distributions?
 \label{fig:evsl}
 \end{figure*}
 
-\subsection{STARPY}\label{sec:starpy}
 
-\textsc{starpy}\footnote{Publicly available: \url{http://github.com/zooniverse/starpy}} is a \textsc{python} code which allows the derivation of the exponentially declining star formation history (SFH) of a single galaxy using  Bayesian Markov Chain Monte Carlo techniques \citep{emcee13}\footnote{\url{http://dan.iel.fm/emcee/}}. The code uses the solar metallicity stellar population models of \cite[][hereafter BC03]{BC03}, assumes a Chabrier IMF \citep{chabrier03} and requires the input of the observed $u-r$ and $NUV-u$ colours and redshift. No attempt is made to model for intrinsic dust. 
+In order to classify the galaxies in the \textsc{q-manga-galex} sample as regular rotators or otherwise, we use the equation for specific stellar angular momentum as defined by \cite{emsellem07, emsellem11};
+\begin{equation}
+\lambda_{R_{e}} = \frac{\sum_{i=1}^{N} F_i\ R_i\ |V_i|}{\sum_{i=1}^{N} F_i\ R_i\ (V_i^2 + \sigma_i^2)^{1/2}},
+\end{equation}	
+
+where $F_i$ is the flux in the $i$th spaxel, $R_i$ the spaxel's distance from the galaxy centre (where $R_i < R_e$, the effective radius of a galaxy), $V_i$ the mean stellar velocity in that spaxel, $\sigma_i$ the stellar velocity dispersion in that spaxel and $N$ the total number of spaxels. In this work we use the python function provided in the MaNGA DAP to calculate $\lambda_R$ using the values of mean flux, radius, stellar velocity and stellar velocity dispersion (corrected for instrumental resolution effects) provided in the MAPS files generated by the MaNGA DAP (see Section~\ref{sec:manga}). Velocity dispersion measurements in each spaxel of a galaxy were confirmed to be above the instrument resolution of $77~\rm{km}~\rm{s}^{-1}$
+
+We classify galaxies in the \textsc{q-manga-galex} sample as regular or non-regular rotators using the definition from \cite{cappellari16}:
+
+\begin{equation}
+\lambda_{R_{e}} < 0.08 + \frac{\epsilon_e}{4} ~~~~~ \rm{with} ~~~~~ \epsilon_e < 0.4,
+\end{equation}
+
+where $\epsilon_e$ is the ellipticity of a galaxy within it's effective radius, $R_e$. Using this definition reveals $673$ ($80\%$) regular rotators and $165$ ($20\%$) non-regular rotators in the \textsc{q-manga-galex} sample. They are shown by their velocity maps in Figure~\ref{fig:evsl} along with the definition of a non-regular rotator from \cite{cappellari16}, shown by the solid black line. This is a similar percentage of non-regular rotators as found by previous works \citep[$14-17\%$ of early-types; ][]{emsellem11, stott16}.
+%37% of the NRR are classified as ETGs (ps >=0.8) by GZ and 15% of RR. 
+
+\subsection{SFH Inference}\label{sec:starpy}
+
+\textsc{starpy}\footnote{Publicly available: \url{http://github.com/zooniverse/starpy}} is a \textsc{python} code which allows the inference of the exponentially declining star formation history (SFH) of a single galaxy using  Bayesian Markov Chain Monte Carlo techniques \citep{emcee13}\footnote{\url{http://dan.iel.fm/emcee/}}. The code uses the solar metallicity stellar population models of \cite[][hereafter BC03]{BC03}, assumes a Chabrier IMF \citep{chabrier03} and requires the input of the observed $u-r$ and $NUV-u$ colours and redshift. No attempt is made to model for intrinsic dust. 
 
 The SFH is described by an exponentially declining SFR described by two parameters; the time at the onset of quenching, $t_q~\rm{[Gyr]}$, and the exponential rate at which quenching occurs, $\tau~\rm{[Gyr]}$. Under the simplifying assumption that all galaxies formed at $t=0$ $\rm{ Gyr}$ with an initial burst of star formation, the SFH can be described as: 
 \begin{equation}\label{sfh}
@@ -128,14 +133,14 @@ To study the SFH across a sample of many galaxies, these individual posterior pr
 
 \section{Results}\label{sec:results}
 
-We determine the population SFH densities for both the regular and non-regular rotators of the \textsc{manga-galex} sample. This is shown in Figure~\ref{fig:popfrvsr} for both the time that quenching occurs (left panel) and exponential rate of quenching (right panel) in the regular (black solid line) and non-regular (red dashed line) rotator populations. 
+We determine the population SFH densities for both the regular and non-regular rotators of the \textsc{q-manga-galex} sample. This is shown in Figure~\ref{fig:popfrvsr} for both the time that quenching occurs (left panel) and exponential rate of quenching (right panel) in the regular (black solid line) and non-regular (red dashed line) rotator populations. Uncertainties on the population densities (shown by the shaded regions) are determined from the maximum and minimum values spanned by $N = 1000$ bootstrap iterations, each sampling $90\%$ of a given galaxy sample. 
 
-Whilst we cannot reject the hypothesis that the regular and non-regular rotators have the same distribution of quenching times, the distributions for the rate that quenching occurs for regular and non-regular rotators are significantly different. A KS-test on the two distributions gave a $p$-value of $p=0.0009$, which is a $3\sigma$ result.
+A Kolmogorov-Smirnov (KS) test was conducted first on the quenching time population densities (left panel of Figure~\ref{fig:popfrvsr}) and revealed that we cannot reject the null hypothesis that the regular and non-regular rotators quench at the same time ($D \sim 0.17$, $p \sim 0.09$). A second KS-test was conducted on the quenching rate population densities (right panel of Figure~\ref{fig:popfrvsr}) and revealed that we can reject the null hypothesis that the fast and slow rotators quench at the same exponential rate ($D \sim 0.27$, $p \sim 0.0009$). This is a statistically significant ($3\sigma$) result, , suggesting that non-regular rotators quench more rapidly than regular rotators.
 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{../figures/quenching_time_rate_FR_SR_NSF_C16.pdf}
-\caption{Population densities for the time, $t_q$ (left) and exponential rate, $\tau$ (right) that quenching occurs in the \textsc{manga-nsf} sample for fast (black, solid) and slow (red, dashed) rotators. Shaded regions show the uncertainties on the distributions from bootstrapping. A KS-test between the $t_q$ distributions revealed that we cannot reject ($p=0.09$) the null hypothesis that the fast and slow rotators quench at the same time. However, a KS-test between the $\tau$ distributions revealed that we can reject ($p=0.0009$) the hypothesis that the fast and slow rotators quench at the same rate. This is a $3\sigma$ result, suggesting that slow rotators quench more rapidly.}
+\caption{Population densities for the time, $t_q$ (left) and exponential rate, $\tau$ (right) that quenching occurs in the \textsc{q-manga-galex} sample for regular (black, solid) and non-regular (red, dashed) rotators. Shaded regions show the uncertainties on the distributions from bootstrapping. A KS-test between the $t_q$ distributions revealed that we cannot reject ($p=0.09$) the null hypothesis that the regular and non-regular rotators quench at the same time. However, a KS-test between the $\tau$ distributions revealed that we can reject ($p=0.0009$) the hypothesis that the regular and non-regular rotators quench at the same rate. This is a $3\sigma$ result, suggesting that non-regular rotators quench more rapidly.}
 %KS Test between distributions?
 \label{fig:popfrvsr}
 \end{figure*}
