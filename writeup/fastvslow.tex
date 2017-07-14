@@ -16,11 +16,14 @@
 \begin{document}
 
 \title[Quenching Histories of Regular and Non-Regular Rotators]{SDSS-IV MaNGA: Non-Regular Rotators Quench Faster than Regular Rotators}
-\author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1}$ M.~Merrifield,$^{1}$ K.~L.~Masters,$^{2}$  C. ~J. ~Lintott,$^{3}$ \newauthor A.-M.~Weijmans,$^{4}$ A. Arag\'on-Salamanca,$^{1}$ et al.
+\author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1}$ M.~Merrifield,$^{1}$ K.~L.~Masters,$^{2}$  C. ~J. ~Lintott,$^{3}$ \newauthor A.-M.~Weijmans,$^{4}$ A. Arag\'on-Salamanca,$^{1}$, N.~Drory,$^{5}$,  D.~R.~Law,$^{6}$ J.~Brownstein$^{7}$
 \\ $^1$ School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK
-\\ $^2$ Institute of Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Barnaby Road, Portsmouth, PO1 3FX, UK 
-\\ $^3$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK
-\\ $^4$ School of Physics and Astrononomy, University of St Andrews, North Haugh, St Andrews, Fife, KY16 9RJ, UK
+\\ $^2$ Institute of Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Barnaby Road, Portsmouth, PO13FX, UK 
+\\ $^3$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX13RH, UK
+\\ $^4$ School of Physics and Astrononomy, University of St Andrews, North Haugh, St Andrews, Fife, KY169RJ, UK
+\\ $^5$ McDonald Observatory, The University of Texas at Austin, 1 University Station, Austin, TX 78712, USA
+\\ $^6$ Space Telescope Science Institute, 3700 San Martin Drive, Baltimore, MD 21218, USA
+\\ $^7$ Department of Physics and Astronomy, University of Utah, 115 S. 1400 E., Salt Lake City, UT 84112, USA
 }
 
 \maketitle
@@ -42,7 +45,7 @@ Regular rotators, are thought to evolve from the slow build up of a galaxy's bul
 
 Both major mergers and minor mergers have been postulated as quenching mechanisms \citep{hopkins08a, snyder11, hayward14}, with major mergers thought to cause a much faster quench of the remnant galaxy than a minor merger \citep{lotz08b, lotz11}. Gas accretion is also thought to cause morphological quenching; as the large gravitational potential of the bulge that builds as the accreted gas sinks to the centre of the galaxy prevents the disc from collapsing and forming stars \citep{fang13}. If regular and non-regular rotators evolve or form via these different mechanisms, we should therefore also expect to find a difference in the star formation histories of quenched regular and non-regular rotators. 
 
-This letter documents a pilot study of this problem using an existing Bayesian star formation inference package, \textsc{starpy}, to determine the quenching histories of a sample of regular and non-regular rotators. We use broadband optical, $u-r$ and near-ultraviolet $NUV-u$ colours from SDSS and GALEX to infer both the time and rate that quenching has occurred in each galaxy. We aim to determine whether regular and non-regular rotating galaxies have different quenching histories. 
+This paper documents a first look at this problem using an existing Bayesian star formation inference package, \textsc{starpy}, to determine the quenching histories of a sample of regular and non-regular rotators. We use broadband optical, $u-r$ and near-ultraviolet $NUV-u$ colours from SDSS and GALEX to infer both the time and rate that quenching has occurred in each galaxy. We aim to determine whether regular and non-regular rotating galaxies have different quenching histories. 
 % before visualising the distribution of these parameters across the regular and non-regular populations. 
 %This paper proceeds as follows. In Section~\ref{sec:datamethods} we describe our data sources and our Bayesian inference method for determining the quenching histories. We present our results in Section~\ref{sec:results}. We discuss the implications of our results in Section~\ref{sec:discussion}. 
 The zero points of all magnitudes are in the AB system. We adopt the WMAP Seven-Year Cosmology \citep{jarosik11} with $(\Omega_m , ~\Omega_\Lambda , ~h) = (0.26, 0.73, 0.71)$.
@@ -58,7 +61,7 @@ We obtain optical photometry from the Sloan Digital Sky Survey Data Release 7 (S
 \subsection{MaNGA Survey \& Data Reduction Pipeline}\label{sec:manga}
 
 
-MaNGA is a multi-object IFU survey conducted with the $2.5~\rm{m}$ Sloan Foundation Telescope \citep{gunn06} at Apache Point Observatory (APO). By 2020 MaNGA will have acquired IFU spectroscopy for $\sim10000$ galaxies, all with $M_* > 10^9~\rm{M}_{\odot}$ and an approximately flat mass selection (Wake et al., in preparation). The target selection does not include any cuts on morphology, colour or environment. 
+MaNGA is a multi-object IFU survey conducted with the $2.5~\rm{m}$ Sloan Foundation Telescope \citep{gunn06} at Apache Point Observatory (APO) as part of SDSS-IV \citep{blanton17}. By 2020 MaNGA will have acquired IFU spectroscopy for $\sim10000$ galaxies, all with $M_* > 10^9~\rm{M}_{\odot}$ and an approximately flat mass selection (Wake et al., in preparation). The target selection does not include any cuts on morphology, colour or environment. 
 
 In order to obtain spectra, MaNGA makes use of the Baryon Oscillation Spectroscopic Survey (BOSS) spectrograph \citep{smee13}. The BOSS spectrograph provides continuous coverage between $3600~\AA$ and $10300~\AA$ at a spectral resolution $R \sim 2000$ ($\sigma_{\rm{instrument}} \sim 77 \rm{km}~\rm{s}^{−1}$).
 
@@ -66,19 +69,29 @@ Complete spectral coverage to $1.5 R_e$, a galaxy's effective radius, is obtaine
 
 The raw data was processed by the MaNGA data reduction pipeline (DRP), which is discussed in detail \cite{law16}. The MaNGA DRP extracts, wavelength calibrates and flux calibrates all fibre spectra obtained in every exposure. The individual fibre spectra are then used to form a regular gridded datacube of $0.5''$ ‘spaxels’ and spectral channels. The spectra are logarithmically sampled with bin widths of $\log{\lambda} = 10^{-4}$. 
 
-These datacubes are then analysed using the MaNGA data analysis pipeline (DAP); the development of which is ongoing and will be described in detail in Westfall et al. (in preparation). The primary output from the DAP are 2D ``maps" (i.e., images) of measured properties, which include flux, stellar-continuum fits, spectral index measurements and absorption- and emission-line properties. The effective radius, $R_e$, of a galaxy and the ellipticity within it, $\epsilon_e$ are provided for MaNGA galaxies in the NASA Sloan Atlas; we utilise the values measured with elliptical Petrosian apertures in {\tt v1\_0\_1} of the catalogue. 
+These datacubes are then analysed using the MaNGA data analysis pipeline (DAP); the development of which is ongoing and will be described in detail in Westfall et al. (in preparation). The primary output from the DAP are 2D ``maps" (i.e., images) of measured properties, which include flux, stellar-continuum fits, spectral index measurements and absorption- and emission-line properties. The effective radius, $R_e$, of a galaxy and the ellipticity within it, $\epsilon_e$, are provided for MaNGA galaxies in the NASA Sloan Atlas; we utilise the values measured with elliptical Petrosian apertures in {\tt v1\_0\_1} of the catalogue provided in the SDSS Data Release 13 \citep{albareti16}. 
 %The DAP provides a measurement of a galaxy's effective radius, $R_e$, and the ellipticity within it, $\epsilon_e$, which is used along with the specific angular momentum to classify galaxies as either regular or non-regular rotators (see Section~\ref{sec:mangasample}). 
 
 \subsection{Data sample}\label{sec:mangasample}
 
-There are currently $2,777$ galaxies observed by the MaNGA survey and consequently observed by SDSS. We cross-matched these galaxies with a radius of $3''$ to the GALEX survey in order to obtain NUV photometry (see Section~\ref{sec:photom}), resulting in $1,413$ galaxies.
+There are currently $2,777$ SDSS galaxies observed by the MaNGA survey. We cross-matched these galaxies with a radius of $3''$ to the GALEX survey in order to obtain NUV photometry (see Section~\ref{sec:photom}), resulting in $1,413$ galaxies.
 
-In this study we wish to study the quenching histories of these galaxies, therefore we sub-select those galaxies which are below the SFS. Here we utilise the global average SFR values quoted in the MPA-JHU catalogue \citep[][which are corrected for aperture bias]{kauffmann03, brinchmann04}. We do not utilise the MaNGA spectra to calculate SFRs since the bundles only extend to $1.5~R_e$, which would result in an underestimation of the global SFR of a galaxy. 
+In this study we wish to investigate the quenching histories of these galaxies, therefore we sub-select those galaxies which are below the star forming sequence (SFS). Here we utilise the global average SFR values quoted in the MPA-JHU catalogue \citep[][which are corrected for aperture bias]{kauffmann03, brinchmann04}. We do not utilise the MaNGA spectra to calculate SFRs since the bundles only extend to $1.5~R_e$, which would result in an underestimation of the global SFR of a galaxy. 
 
 %Whilst we do not use the MPA-JHU SFR values to infer the SFHs of these galaxies (see Section~\ref{sec:starpy}), we do utilise them to select our sample of quenching or quenched galaxies, 
 We select galaxies with a SFR more than $1\sigma$ below the SFS of \cite{peng10}. Since we wish to test whether non-regular rotators quench at rapid rates, consistent with major mergers, we wish to include those galaxies which have just left the SFS (rather than selection those that are, for example, $3\sigma$ below the SFS).
-%In this investigation we also focus on the different formation (and therefore quenching) histories of early-type galaxies and so utilise the morphological classifications of Galaxy Zoo 2 \citep[GZ2; ][]{lintott11, GZ2}. We select those galaxies classified as `smooth' by GZ2 users (i.e. with a debiased `smooth' vote fraction of $p_s \geq 0.8$).  
-This selection on SFR when applied to the \textsc{manga-galex} sample results in a sample of $838$ quenching or quenched galaxies, which we will refer to as the \textsc{q-manga-galex} sample. %(see Appendix section~\ref{asec:masvsfr} for a plot showing the positions of these galaxies below the SFS). 
+
+This selection on SFR when applied to the \textsc{manga-galex} sample results in a sample of $838$ quenching or quenched galaxies, which we will refer to as the \textsc{q-manga-galex} sample. This sample is shown in Figure~\ref{fig:masvsfr}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.475\textwidth]{../figures/nonSF_FR_SR_SFS_scatter.pdf}
+\caption{Stellar mass against star formation rate for the \textsc{q-manga-galex} sample with regular (blue circles) and non-regular (red squares) rotators identified. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \protect\cite{peng10} at the average redshift of the \textsc{q-manga-galex} sample with $\pm 1 \sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-manga-galex} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\protect\ref{sec:mangasample}).}
+%KS Test between distributions?
+\label{fig:masvsfr}
+\end{figure}
+
+%(see Appendix section~\ref{asec:masvsfr} for a plot showing the positions of these galaxies below the SFS). 
 
 Note that this selection will induce some bias in our sample. Regular rotators are theorised to evolve through processes which provide a fresh supply of gas for star formation, including gas-rich mergers and gas accretion. Therefore this work will only probe a specific subset of the regular rotator population. However, non-regular rotators are thought to only form through dry major mergers. If this is the case, then a non-regular rotator can only be formed from a regular rotator within which quenching is already under way. However, simulations have shown that the morphological transformation in a major merger happens before the SFR drops \cite[e.g. see][]{sparre16}. We should therefore still be able to probe whether this major merger evolution scenario exists in the non-regular rotator sample, rather than in the regular rotator sample.   
 
@@ -97,17 +110,19 @@ We classify galaxies in the \textsc{q-manga-galex} sample as regular or non-regu
 Using this definition reveals $673$ ($80\%$) regular rotators and $157$ ($20\%$) non-regular rotators in the \textsc{q-manga-galex} sample. 
 This is a slightly higher percentage of non-regular rotators as found by previous works \citep[$14-17\%$ of early-types; ][]{emsellem11, stott16}. Considering the fact that we do not select our sample by morphology, we would expect a smaller fraction of non-regular rotators than previous works which derived the early-type fraction of non-regular rotators. However, we believe this is offset by the fact that we also select those galaxies which lie off the SFS, a region which is typically dominated by elliptical galaxies.   
 
-In order to control for the degeneracies between mass, metallicity and dust we selected a sub-sample of regular rotators matched to within $\pm~2.5~\rm{pc}$ of the stellar mass of the non-regular rotators to give $157$ regular rotators. We shall refer to this sample of $314$ galaxies as the \textsc{mm-q-manga-galex} sample. An Anderson-Darling (AD) test reveals that the distribution of stellar masses of the non-regular rotators and regular rotators within this sample are statistically indistinguishable ($p=0.28$). Similarly their redshift distributions are also statistically indistinguishable ($p=0.34$).
+In order to control for the degeneracies between mass, metallicity and dust we selected a sub-sample of regular rotators matched to within $\pm~2.5~\%$ of the stellar mass of the non-regular rotators to give $157$ regular rotators. We shall refer to this sample of $314$ galaxies as the \textsc{mm-q-manga-galex} sample. An Anderson-Darling (AD) test reveals that the distribution of stellar masses of the non-regular rotators and regular rotators within this sample are statistically indistinguishable ($p=0.28$). Similarly their redshift distributions are also statistically indistinguishable ($p=0.34$).
 
-We also consider the environmental densities of the regular and non-regular rotators by using estimates of the projected neighbour density,  $\log\Sigma_N$, from \cite{bamford09}. An Anderson-Darling (AD) test reveals that the distribution of environment densities of the $110$ non-regular rotators and $120$ regular rotators within the \textsc{mm-q-manga-galex} sample with $\log\Sigma_N$ measurements are statistically indistinguishable ($p=0.17$).  
+We also consider the environmental densities of the regular and non-regular rotators by using estimates of the projected $5\rm{th}$ nearest neighbour density,  $\log\Sigma_5$, from \cite{bamford09}. An Anderson-Darling (AD) test reveals that the distribution of environment densities of the $110$ non-regular rotators and $120$ regular rotators within the \textsc{mm-q-manga-galex} sample with $\log\Sigma_5$ measurements are statistically indistinguishable ($p=0.17$). 
 
-Therefore the only difference between the regular and non-regular rotators of the \textsc{mm-q-manga-galex} sample is their kinematics. This is highlighted by their velocity maps shown in Figure~\ref{fig:evsl} along with the definition of a non-regular rotator from \cite{cappellari16}, shown by the solid black line. 
+This is surprising since the current thinking is that non-regular rotators are more likely to be the central galaxy of a group or cluster, whereas regular rotators are more likely to be satellite galaxies \cite[see extensive review by][and references therin]{cappellari16}. Indeed, when we calculate the minimum projected separation (in degrees) of each of the galaxies in the \textsc{mm-q-manga-galex} from those of the \cite{yang09} SDSS group catalogue we find that the regular and non-regular rotators have statistically distinguishable distributions of projected separation (AD-test $p=0.005$). We find that the non-regular rotators are more likely to be the central galaxy of a group than the regular rotators of the \textsc{mm-q-manga-galex} sample. Therefore, although the projected local environment densities of the two classes of galaxies are statistically indistinguishable, their positions within that given environment density do differ, as expected. 
+
+Given the above statistical tests, the only difference between the regular and non-regular rotators of the \textsc{mm-q-manga-galex} sample is their kinematics. This is highlighted by their velocity maps shown in Figure~\ref{fig:evsl} along with the definition of a non-regular rotator from \cite{cappellari16}, shown by the solid black line. 
 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.48\textwidth]{../figures/nonSF_FR_SR_MM_sample_orig_cmap_vel_maps_large.pdf}
-\caption{Ellipticity versus stellar angular momentum for the mass matched regular and non-regular rotators of the \textsc{mm-q-manga-galex} sample. Each point is shown by its stellar velocity map, each normalised to have the midpoint, between maximum and minimum measured velocity dispersions, shown by the colour yellow. We show the separation between regular (i.e. fast) and non-regular (i.e. slow) rotators from \protect\cite{cappellari16} with the solid black line.}
+\caption{Ellipticity versus stellar angular momentum for the mass matched regular and non-regular rotators of the \textsc{mm-q-manga-galex} sample. Each point is shown by its stellar velocity map, each normalised to have the midpoint shown by the colour yellow. We show the separation between regular (i.e. fast) and non-regular (i.e. slow) rotators from \protect\cite{cappellari16} with the solid black line.}
 %KS Test between distributions?
 \label{fig:evsl}
 \end{figure}
@@ -162,6 +177,14 @@ The prevalence of rapid rates ($\tau\lesssim1~\rm{Gyr}$) in the non-regular rota
 
 Our pilot results suggest that although the kinematics of regular and non-regular rotators are different in nature, the mechanisms which quench, and therefore evolve, these galaxies are very similar. However, in order to completely destroy the disk of a galaxy, some property in the formation/quenching mechanism must exceed some threshold. Since simulations have shown that it is possible for a disc to be retained in a dry major 1:1 mass ratio merger, this quantity cannot be the merger mass ratio as previously thought ~\citep{binneytremaine, bois10, tonini16}. Instead, our results showing similar quenching rates occurring across both regular and non-regular rotator samples, combined with the findings of recent simulations by ~\cite{bois11, pontzen16, sparre16}, suggest that the total gas mass fraction within a pair of merging galaxies, is what will ultimately decide the kinematic fate of a galaxy. 
 
+\section*{Acknowledgements}
+Funding for the Sloan Digital Sky Survey IV has been provided by the
+Alfred P. Sloan Foundation, the U.S. Department of Energy Office of
+Science, and the Participating Institutions. SDSS acknowledges
+support and resources from the Center for High-Performance Computing at the University of Utah. The SDSS web site is \url{www.sdss.org}.
+
+SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institution for Science, Carnegie Mellon University, the Chilean Participation Group, the French Participation Group, Harvard-Smithsonian Center for Astrophysics, Instituto de Astrofísica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe (IPMU) / University of Tokyo, Lawrence Berkeley National Laboratory, Leibniz Institut für Astrophysik Potsdam (AIP), Max-Planck-Institut für Astronomie (MPIA Heidelberg), Max-Planck-Institut für Astrophysik (MPA Garching), Max-Planck-Institut für Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observatório Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Autónoma de México, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University.
+
 \bibliographystyle{mn2e}
 \bibliography{refs}  
 
@@ -171,12 +194,6 @@ Our pilot results suggest that although the kinematics of regular and non-regula
 
 % Figure~\ref{fig:masvsfr} shows the location of the non-regular and mass matched regular rotators of the \textsc{mm-q-manga-galex} lying more than $1\sigma$ below the SFS.
 
-% \begin{figure}
-% \centering
-% \includegraphics[width=0.475\textwidth]{../figures/nonSF_FR_SR_SFS_scatter_mass_matched.pdf}
-% \caption{Stellar mass against star formation rate for the \textsc{q-manga-galex} sample with regular (blue circles) and non-regular (red squares) rotators identified. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \protect\cite{peng10} at the average redshift of the \textsc{q-manga-galex} sample with $\pm 1 \sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-manga-galex} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\protect\ref{sec:mangasample}).}
-% %KS Test between distributions?
-% \label{fig:masvsfr}
-% \end{figure}
+
 
 \end{document}
