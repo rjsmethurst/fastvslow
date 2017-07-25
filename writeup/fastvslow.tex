@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\title[Quenching Histories of Regular and Non-Regular Rotators]{SDSS-IV MaNGA: Non-Regular Rotators Quench Faster than Regular Rotators}
+\title[Quenching Histories of Fast and Slow Rotators]{SDSS-IV MaNGA: Slow Rotators Quench Faster than Fast Rotators}
 \author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1}$ M.~Merrifield,$^{1}$ K.~L.~Masters,$^{2}$  C. ~J. ~Lintott,$^{3}$ \newauthor A.-M.~Weijmans,$^{4}$ A. Arag\'on-Salamanca,$^{1}$, B.~Nichol,$^{2}$ N.~Drory,$^{5}$,  D.~R.~Law,$^{6}$ \newauthor J.~Brownstein,$^{7}$ K.~Bundy$^{8}$
 \\ $^1$ School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK
 \\ $^2$ Institute of Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Barnaby Road, Portsmouth, PO13FX, UK 
@@ -113,10 +113,26 @@ This is a slightly higher percentage of non-regular rotators as found by previou
 
 \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{../figures/nonSF_FR_SR_MM_sample_orig_cmap_vel_maps_large.pdf}
-\caption{Ellipticity versus stellar angular momentum for the mass matched regular and non-regular rotators of the \textsc{mm-q-manga-galex} sample. Each point is shown by its stellar velocity map, each normalised to have the midpoint shown by the colour yellow. We show the separation between regular (i.e. fast) and non-regular (i.e. slow) rotators from \protect\cite{cappellari16} with the solid black line.}
+\includegraphics[width=\textwidth]{../figures/nonSF_FR_SR_sample_orig_cmap_vel_maps.pdf}
+\caption{Ellipticity versus stellar angular momentum for the regular and non-regular rotators of the \textsc{q-manga-galex} sample. Each point is shown by its stellar velocity map, each normalised to have a stellar velocity of $0~\rm{km}~\rm{s}^{-1}$ shown by the colour yellow. We show the separation between regular (i.e. fast) and non-regular (i.e. slow) rotators from \protect\cite{cappellari16} with the solid black line.}
 %KS Test between distributions?
 \label{fig:evsl}
+\end{figure*}  
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8451-1901-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8726-1901-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8486-3701-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8243-12703-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8568-9102-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8137-9101-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8078-12703-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8588-3702-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.28\textwidth]{../figures/proper_velmap_8447-1902-MAPS-SPX-GAU-MILESHC.pdf}
+\caption{Example stellar velocity maps showing (top row) three galaxies removed from the non-regular rotator \textsc{Q-MANGA-GALEX} sample as their kinematics were not dispersion dominated, (middle row) three slow rotator galaxies with dispersion dominated kinematics, and (bottom row) three fast rotator galaxies with rotationally supported kinematics. The MaNGA ID of each galaxy is shown in the top left of each panel.}
+%KS Test between distributions?
+\label{fig:exvelmaps}
 \end{figure*}  
 
 In order to control for the degeneracies between mass, metallicity and dust we selected a sub-sample of regular rotators matched to within $\pm~2.5~\%$ of the stellar mass of the non-regular rotators to give $157$ regular rotators. We shall refer to this sample of $314$ galaxies as the \textsc{mm-q-manga-galex} sample. An Anderson-Darling (AD) test reveals that the distribution of stellar masses of the non-regular rotators and regular rotators within this sample are statistically indistinguishable ($p=0.28$). Similarly their redshift distributions are also statistically indistinguishable ($p=0.34$).
@@ -145,8 +161,8 @@ where $i_{sfr}$ is an initial constant star formation rate dependent on $t_q$ \c
 
 \begin{figure*}
 \centering
-\includegraphics[width=\textwidth]{../figures/quenching_time_rate_FR_SR_NSF_1sigma_C16_MM.pdf}
-\caption{Population densities for the time, $t_q$ (left) and exponential rate, $\tau$ (right) that quenching occurs in the \textsc{mm-q-manga-galex} sample for the regular (black, solid) and non-regular (red, dashed) rotators. A high value of $t_q$ corresponds to a recent quench, and a high value of $\tau$ corresponds to a slow quench. Shaded regions show the uncertainties on the distributions from bootstrapping. %An AD-test between the $t_q$ distributions revealed that we cannot reject ($p=0.49$) the null hypothesis that the regular and non-regular rotators quench at the same time. However, an AD-test between the $\tau$ distributions revealed that we can reject ($p=0.0003$) the hypothesis that the regular and non-regular rotators quench at the same rate. This is a $3.6\sigma$ result, suggesting that non-regular rotators quench more rapidly than regular rotators of the same mass.}
+\includegraphics[width=\textwidth]{../figures/quenching_time_rate_FR_SR_nonkdc_MM_NSF_1sigma_C16.pdf}
+\caption{Population densities for the time, $t_q$ (left) and exponential rate, $\tau$ (right) that quenching occurs in the \textsc{mm-q-manga-galex} sample for the fast (black, solid) and slow (red, dashed) rotators. A high value of $t_q$ corresponds to a recent quench, and a high value of $\tau$ corresponds to a slow quench. Shaded regions show the uncertainties on the distributions from bootstrapping. %An AD-test between the $t_q$ distributions revealed that we cannot reject ($p=0.49$) the null hypothesis that the regular and non-regular rotators quench at the same time. However, an AD-test between the $\tau$ distributions revealed that we can reject ($p=0.0003$) the hypothesis that the regular and non-regular rotators quench at the same rate. This is a $3.6\sigma$ result, suggesting that non-regular rotators quench more rapidly than regular rotators of the same mass.}
 %KS Test between distributions?
 }
 \label{fig:popfrvsr}
