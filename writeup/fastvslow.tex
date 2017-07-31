@@ -16,7 +16,7 @@
 \begin{document}
 
 \title[Quenching Histories of Fast and Slow Rotators]{SDSS-IV MaNGA: Slow Rotators Quench Faster than Fast Rotators}
-\author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1}$ K.~L.~Masters,$^{2}$  C. ~J. ~Lintott,$^{3}$ A.~Weijmans,$^{4}$  M.~Merrifield,$^{1}$ \newauthor S.~Penny,$^{2}$ A. Arag\'on-Salamanca,$^{1}$,  J.~Brownstein,$^{5}$ K.~Bundy,$^{6}$  N.~Drory,$^{7}$, \newauthor  D.~R.~Law,$^{8}$ B.~Nichol $^{2}$ 
+\author[Smethurst et al. 2017]{R. ~J. ~Smethurst,$^{1}$ K.~L.~Masters,$^{2}$  C. ~J. ~Lintott,$^{3}$ A.~Weijmans,$^{4}$  M.~Merrifield,$^{1}$ \newauthor S.~Penny,$^{2}$ A. Arag\'on-Salamanca,$^{1}$,  J.~Brownstein,$^{5}$ K.~Bundy,$^{6}$  N.~Drory,$^{7}$, \newauthor  D.~R.~Law,$^{8}$ R. ~C. ~Nichol $^{2}$ 
 \\ $^1$ School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK
 \\ $^2$ Institute of Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Barnaby Road, Portsmouth, PO13FX, UK 
 \\ $^3$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX13RH, UK
@@ -86,7 +86,7 @@ We select galaxies with a SFR more than $1\sigma$ below the SFS of \cite{peng10}
 \begin{figure}
 \centering
 \includegraphics[width=0.475\textwidth]{../figures/nonSF_FR_SR_SFS_scatter.pdf}
-\caption{Stellar mass against star formation rate for the \textsc{q-manga-galex} sample with regular (blue circles) and non-regular (red squares) rotators identified. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \protect\cite{peng10} at the average redshift of the \textsc{q-manga-galex} sample, with $\pm 1 \sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-manga-galex} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\protect\ref{sec:mangasample}).}
+\caption{Stellar mass against star formation rate for the \textsc{q-manga-galex} sample with regular (blue circles) and non-regular (red squares) rotators identified using Equation~\ref{eq:fvs}. Shown also are the contours for the entire MPA-JHU sample (black contours; i.e. SDSS DR7). The solid line shows the SFS as defined by \protect\cite{peng10} at the average redshift of the \textsc{q-manga-galex} sample, with $\pm 1 \sigma$ shown by the dashed lines. Note that the galaxies in the \textsc{q-manga-galex} sample are chosen to be more than $1\sigma$ below the SFS as defined at their observed redshift and stellar mass (see Section~\protect\ref{sec:mangasample}).}
 %KS Test between distributions?
 \label{fig:masvsfr}
 \end{figure}
@@ -103,7 +103,7 @@ In order to classify the galaxies in the \textsc{q-manga-galex} sample as slow r
 where $F_i$ is the flux in the $i$th spaxel, $R_i$ the spaxel's distance from the galaxy centre (where $R_i < R_e$, the effective radius of a galaxy), $V_i$ the mean stellar velocity in that spaxel, $\sigma_i$ the stellar velocity dispersion in that spaxel and $N$ the total number of spaxels. In this work we use the \emph{Python} function provided in the MaNGA DAP to calculate $\lambda_{R_{e}}$ using the values of mean flux, radius, stellar velocity and stellar velocity dispersion (corrected for instrumental resolution effects) provided  by the MaNGA DAP (see Section~\ref{sec:manga}). Velocity dispersion measurements in each spaxel of a galaxy were confirmed to be above the instrument resolution of $77~\rm{km}~\rm{s}^{-1}$.
 
 We then classify galaxies in the \textsc{q-manga-galex} sample as regular or non-regular rotators using the definition from \cite{cappellari16}:
-\begin{equation}
+\begin{equation}\label{eq:fvs}
 \lambda_{R_{e}} < 0.08 + \frac{\epsilon_e}{4} ~~~~~ \rm{with} ~~~~~ \epsilon_e < 0.4.
 \end{equation}
 
@@ -124,15 +124,16 @@ In order to obtain a sample of slow rotators, one author (RJS) inspected the vel
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8451-1901-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8726-1901-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8486-3701-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8243-12703-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8568-9102-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8137-9101-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8078-12703-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8588-3702-MAPS-SPX-GAU-MILESHC.pdf}
-\includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8447-1902-MAPS-SPX-GAU-MILESHC.pdf}
+\includegraphics[width=0.98\textwidth]{../figures/proper_large_velmap_9_gal-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8451-1901-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8726-1901-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8486-3701-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8243-12703-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8568-9102-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8137-9101-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8078-12703-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8588-3702-MAPS-SPX-GAU-MILESHC.pdf}
+% \includegraphics[width=0.32\textwidth]{../figures/proper_large_velmap_8447-1902-MAPS-SPX-GAU-MILESHC.pdf}
 \caption{Example stellar velocity maps showing three galaxies removed from the non-regular rotator \textsc{Q-MANGA-GALEX} sample as their kinematics were not dispersion dominated (top row), three slow rotator galaxies with dispersion dominated kinematics (middle row), and three fast rotator galaxies with rotationally supported kinematics (bottom row). The MaNGA ID of each galaxy is shown in the top left of each panel.}
 %KS Test between distributions?
 \label{fig:exvelmaps}
@@ -146,7 +147,7 @@ This is surprising since the current theory is that slow rotators are more likel
 
 If we then consider only those galaxies in groups with a total stellar mass greater than $10^{11}±\rm{M}_{\odot}$ (under the simplifying assumption that this will remove the majority of single galaxy `groups') we find the fraction of slow rotators classified as a BGG is $41/58$ ($71\%$), whereas for fast rotators this drops to $28/50$ ($56\%$), a statistically significant difference ($p=0.0004$). Therefore, although the projected local environment densities of the two kinematic classes of galaxies are statistically indistinguishable, their positions within that given environment density do differ, as expected. 
 
-Given the above statistical tests, the only difference between the fast and slow rotators of the \textsc{mm-q-manga-galex} sample is their kinematics and their position within their group halo.
+Given the above statistical tests, the only difference between the fast and slow rotators of the \textsc{mm-q-manga-galex} sample is their kinematics, their colour and their position within their group halo.
 
 %37% of the NRR are classified as ETGs (ps >=0.8) by GZ and 15% of RR. 
 
@@ -183,7 +184,7 @@ To study the SFH across a sample of many galaxies, these individual posterior pr
 
 We determine the population SFH densities for both the fast and slow rotators of the \textsc{mm-q-manga-galex} sample. This is shown in Figure~\ref{fig:popfrvsr} for both the onset time (left panel) and exponential rate (right panel) of quenching for the fast (black solid line) and slow (red dashed line) rotators. Uncertainties on the population densities (shown by the shaded regions) are determined from the maximum and minimum values spanned by $N = 1000$ bootstrap iterations, each sampling $90\%$ of either the fast (black shaded region) or slow (red shaded region) rotators. 
 
-To statistically test the significance of our results, we estimate the `best fit' $[t_q, \tau]$ values for each galaxy with the median value of an individual galaxy's posterior probability distribution from \textsc{starpy} (i.e. the 50th percentile position of the MCMC chain). We test the distribution of these values of the fast and slow rotators in the \textsc{mm-q-manga-galex} sample with AD-tests. Firstly, an AD-test on the distributions of $t_q$ values in the fast and slow rotator samples, revealed that we cannot reject the null hypothesis that the fast and slow rotators quench at the same time ($AD= 0.9$, $p = 0.1$). Finally, an AD-test on the distributions of $\tau$ values, revealed that we can reject the null hypothesis that the fast and slow rotators quench at the same rate ($AD= 4.4$, $p = 0.006$). This is a statistically significant ($2.9\sigma$) result, suggesting that slow rotators quench faster than fast rotators of the same mass.
+To statistically test the significance of our results, we estimate the `best fit' $[t_q, \tau]$ values for each galaxy with the median value of an individual galaxy's posterior probability distribution from \textsc{starpy} (i.e. the 50th percentile position of the MCMC chain). We test the distribution of these values of the fast and slow rotators in the \textsc{mm-q-manga-galex} sample with AD-tests. Firstly, an AD-test on the distributions of $t_q$ values in the fast and slow rotator samples, revealed that we cannot reject the null hypothesis that the fast and slow rotators quench at the same time ($AD= 0.9$, $p = 0.1$). Finally, an AD-test on the distributions of $\tau$ values, revealed that we can reject the null hypothesis that the fast and slow rotators quench at the same rate ($AD= 4.4$, $p = 0.006$)\footnote{We also tested the distributions of the colours of the slow and fast rotators in the \textsc{mm-q-manga-galex} sample and found that both the $u-r$ ($AD= 6.3$, $p = 0.001$) and NUV-u ($AD= 18.1$, $p = 9\times10^{-6}$) colours of the two kinematic classifications are statistically distinguishable.}. This is a statistically significant ($2.9\sigma$) result, suggesting that slow rotators quench faster than fast rotators of the same mass.
 
 
 \section{Discussion}\label{sec:discussion}
@@ -200,9 +201,9 @@ These dispersion dominated galaxies in the \textsc{q-manga-galex} sample instead
 
 \section{Conclusions}
 
-We have investigated the star formation histories of quenching or quenched fast and slow rotators identified in the MaNGA galaxy sample, irrespective of their visual morphology. We used the $u-r$ and $NUV-u$ colours with an existing piece of inference software, \textsc{starpy}, to determine the onset time and exponential rate of quenching in each of these galaxies. We find that rapid quenching rates are more prevalent for slow rotators than fast rotators, with an Anderson-Darling test revealing that this is a statistically significant result ($2.9\sigma$). Fast rotators appear to quench at all rates, including those rapid rates typically associated with major mergers.   
+We have investigated the star formation histories of quenching or quenched fast and slow rotators identified in the MaNGA galaxy sample, irrespective of their visual morphology. We used the $u-r$ and $NUV-u$ colours with an existing piece of inference software, \textsc{starpy}, to determine the onset time and exponential rate of quenching in each of these galaxies. We find that rapid quenching rates are more prevalent for slow rotators than fast rotators, with an Anderson-Darling test revealing that this is a statistically significant result ($2.9\sigma$). Fast rotators appear to quench at a wide range of rates, consistent with secular evolution and gas accretion mechanisms, but also at rapid rates, which simulations suggest are associated with major mergers.   
 
-Our results suggest that although the kinematics of fast and slow rotators are different in nature, the mechanisms which quench, and therefore evolve, these galaxies are very similar. The similar quenching rates seen occurring across both fast and slow rotator samples, combined with the findings of recent simulations showing disc survival in gas-rich major mergers ~\citep{bois11, pontzen16, sparre16}, suggests that the total gas mass fraction within a pair of merging galaxies, is what will ultimately decide the kinematic fate of a galaxy. 
+This finding of rapid quenching rates occurring for both fast and slow rotators suggests that although their kinematics are different in nature, they may quench, and therefore form, via the same mechanism of major mergers. This result combined with the findings of recent simulations showing disc survival in gas-rich major mergers ~\citep{bois11, pontzen16, sparre16}, suggests that the total gas mass fraction within a pair of merging galaxies, is what will ultimately decide the kinematic fate of a galaxy. 
 
 \section*{Acknowledgements}
 
